@@ -12,6 +12,7 @@
   "dependencies": {
     "mongoose": "^5.9.27",
     "mongoose-data-seed": "^2.1.6",
+    "request": "^2.88.2",
     "v-response": "^1.1.0"
   },
   "devDependencies": {
