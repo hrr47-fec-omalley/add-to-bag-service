@@ -1,17 +1,32 @@
 {
-  "name": "",
-  "version": "",
-  "description": "",
-  "author": "",
-  "license": "",
+  "name": "add-to-bag-service",
+  "description": "> Project description",
+  "author": "Puja",
+  "license": "ISC",
   "engines": {
     "node": ">=6.13.0"
   },
   "scripts": {
+    "seed": "node ./server/seeder.js"
   },
   "dependencies": {
+    "mongoose": "^5.9.27",
+    "mongoose-data-seed": "^2.1.6",
+    "v-response": "^1.1.0"
   },
   "devDependencies": {
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
-  }
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor.git",
+    "mongoose-seed": "^0.6.0"
+  },
+  "version": "1.0.0",
+  "main": ".eslintrc.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hrr47-fec-omalley/add-to-bag-service.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/hrr47-fec-omalley/add-to-bag-service/issues"
+  },
+  "homepage": "https://github.com/hrr47-fec-omalley/add-to-bag-service#readme"
 }
