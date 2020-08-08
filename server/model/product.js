@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
 
 const productSchema = new mongoose.Schema({
+  pid: {
+    type: Number,
+  },
   name: {
     type: String,
   },
