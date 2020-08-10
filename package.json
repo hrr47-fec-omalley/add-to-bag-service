@@ -9,15 +9,20 @@
   "scripts": {
     "seed": "node ./server/seeder.js",
     "start": "npm run build",
-    "build": "webpack -p --watch && webpack-dev-server"
+    "build": "webpack -p --watch && webpack-dev-server",
+    "dev": "nodemon ./server/server.js"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "mongoose": "^5.9.27",
     "mongoose-data-seed": "^2.1.6",
     "objectid": "^3.2.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-hover-grid": "^1.0.9",
     "request": "^2.88.2",
+    "simple-flexbox": "^2.3.2",
+    "styled-components": "^5.1.1",
     "v-response": "^1.1.0"
   },
   "devDependencies": {
