@@ -19,6 +19,7 @@
     "objectid": "^3.2.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-horizontal-scrolling-menu": "^0.7.7",
     "react-hover-grid": "^1.0.9",
     "request": "^2.88.2",
     "simple-flexbox": "^2.3.2",

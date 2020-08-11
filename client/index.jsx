@@ -4,8 +4,10 @@ import Grid from './components/Hgrid.jsx';
 import { Column, Row } from 'simple-flexbox';
 import styled from 'styled-components';
 import Stars from './components/ReviewStar.jsx';
-
-
+import Images from './components/ImageComp.jsx';
+import ButtonComponent from './components/ButtonComp.jsx';
+import ImageComponent from './components/ImageComp.jsx';
+import BottomComponent from './components/BottomComp.jsx';
 import axios from 'axios';
 
 const Name = styled.h3`
@@ -23,9 +25,10 @@ height: 180px;
 
 const Desc = styled.p`
 align-item: right;
-font-size: .975rem;
-display: flex;
+font-size: 1.1rem;
 flex-wrap: wrap;
+display: flex;
+
 ;`;
 
 const Price = styled.h3`
@@ -34,6 +37,18 @@ font-size: .975rem;
 line-height: 1.45455;
 display: flex;
 ;`;
+
+const Label = styled.span`
+color: #111;
+font-size: .875rem;
+line-height: 1.57143;
+font-weight: 700;
+display: block;
+;`;
+
+const heartBtn = styled.button`
+    background: '/images/heart.png';
+    `;
 
 class App extends React.Component {
 
@@ -49,7 +64,6 @@ class App extends React.Component {
     this.fetchId = this.fetchId.bind(this);
   }
 
-
   componentDidMount() {
     this.fetchId(1);
   }
@@ -58,24 +72,23 @@ class App extends React.Component {
     axios.get(`/product/${id}`)
       .then(({data}) => {
         console.log('data from fetch ID : ', data[0]);
-        let imagUrls = data[0].images.map(i => i.imageUrl);
-        console.log(imagUrls);
+        var imagUrls = data[0].images.map(i => i.imageUrl);
+        console.log("new images..", imagUrls);
         this.setState({
           name: data[0].name,
           price: data[0].price,
           label: data[0].label,
-          rating: data[0].rating
+          rating: data[0].rating,
+          urls: [...imagUrls]
         });
       })
       .catch((error) => console.log(error));
   }
 
-
-
   render() {
-    console.log('data from Index.js :', this.state.name);
+    console.log('urls new :', this.state.urls);
     return (
-      <Column flexGrow={1}>
+      <st flexGrow={1} >
         <Row horizontal='center'>
           <TopSpace>MYKEA</TopSpace>
         </Row>
@@ -85,21 +98,43 @@ class App extends React.Component {
             <span> column 1 content </span>
           </Column>
           <Column flexGrow={1} horizontal='center'>
-            {/* <h3 > {this.state.name} </h3> */}
+            <img src='/images/shopping-bag.png'/>
             <Row vertical='center'>
-              <Column flexGrow={2}>
-                <Name>{this.state.name}</Name>
-                <Desc>Sleeper sectional,3 seat w/storage, Skiftebo dark gray</Desc>
-                <Stars></Stars>
-              </Column>
-              <Column flexGrow={1}>
-                <Price>{this.state.price}</Price>
-                {/* <span > column 2 content </span> */}
+              <Column flexGrow={2} flexShrink={2}>
+                <Row>
+                  <Column flexGrow={1}>
+                    <Name>{this.state.name}</Name>
+                    <Desc>Sleeper sectional,3 seat w/storage, Skiftebo dark gray</Desc>
+                    <Stars></Stars>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <Label>{this.state.label}</Label>
+                    <Row vertical='center'>
+                      <ImageComponent images= {this.state.urls}> </ImageComponent>
+                    </Row>
+                    <ButtonComponent/>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+
+                    <Row>
+                      <BottomComponent/>
+                    </Row>
+
+                  </Column>
+                  <Column flexGrow={1}>
+                    <Price>{this.state.price}</Price>
+                  </Column>
+                </Row>
+
               </Column>
             </Row>
           </Column>
         </Row>
-      </Column>
+      </st>
     );
   }
 }

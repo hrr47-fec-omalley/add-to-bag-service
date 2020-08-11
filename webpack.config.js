@@ -17,6 +17,11 @@ module.exports = {
         exclude: /(node_modules|bower_components)/,
         use: {
           loader: 'babel-loader',
+          // loader: [{
+          //   loader: 'babel-loader',
+          //   loader: 'file-loader',
+          // }],
+
           options: {
             presets: ['@babel/preset-react']
           }

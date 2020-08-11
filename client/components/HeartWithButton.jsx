@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import IconStar from './IconStar.jsx';
+import IconStar from './Heart.jsx';
 
 const S = {};
 
@@ -17,7 +17,7 @@ S.RatingSpan = styled.span`
   font-family: Helvetica, Arial;
 `;
 
-S.BackStarsDiv = styled.div`
+S.BackHeartDiv = styled.div`
   display: flex;
   position: relative;
   color: #d3d3d3;
@@ -32,30 +32,15 @@ S.FrontDiv = styled.div`
   color: #ffbc0b;
 `;
 
-var ReviewStars = function (props) {
+var HeartButton = function (props) {
   let rating = 0;
-
-  /* This is to round the rating to closest .5 or .0 */
-  if (props.stars) {
-    rating =
-      (((Math.round((props.stars * 10) / 5) * 5) / 10) * 20).toString() + "%";
-  }
 
   return (
     <React.Fragment>
       <S.WrapperDiv>
-        <S.BackStarsDiv>
-          <IconStar />
-          <IconStar />
-          <IconStar />
-          <IconStar />
-          <IconStar />
-          <S.FrontDiv rating={rating}>
-            <IconStar />
-            <IconStar />
-            <IconStar />
-          </S.FrontDiv>
-        </S.BackStarsDiv>
+        <S.BackHeartDiv>
+          <Heart />
+        </S.BackHeartDiv>
       </S.WrapperDiv>
     </React.Fragment>
   );
