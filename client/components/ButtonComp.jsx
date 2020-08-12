@@ -41,17 +41,22 @@ const HeartBtn = styled.button`
 class ButtonComponent extends React.Component {
   constructor(props) {
     super(props);
-
+    this.state = {
+      label: 'Add to bag'
+    };
     this.addToBag = this.addToBag.bind(this);
   }
 
   addToBag(e) {
-    console.log("clicked from add to bag");
+    console.log('clicked from add to bag');
+    this.setState({
+      label: 'Added'
+    });
   }
   render(props) {
     return (
-      <div>
-        <Btn onClick={this.addToBag}>Add to bag</Btn>
+      <div style={{marginTop: '-50px'}}>
+        <Btn onClick={this.addToBag}>{this.state.label}</Btn>
         {/* <button><img src="./images/heart.png" /></button> */}
         <HeartBtn></HeartBtn>
       </div>

@@ -59,7 +59,8 @@ class App extends React.Component {
       price: '',
       label: '',
       rating: '',
-      urls: []
+      urls: [],
+      imageDesc:[]
     };
     this.fetchId = this.fetchId.bind(this);
   }
@@ -73,13 +74,15 @@ class App extends React.Component {
       .then(({data}) => {
         console.log('data from fetch ID : ', data[0]);
         var imagUrls = data[0].images.map(i => i.imageUrl);
-        console.log("new images..", imagUrls);
+        var desc = data[0].images.map(i => i.name);
+        console.log("new images..", desc);
         this.setState({
           name: data[0].name,
           price: data[0].price,
           label: data[0].label,
           rating: data[0].rating,
-          urls: [...imagUrls]
+          urls: [...imagUrls],
+          imageDesc: [...desc]
         });
       })
       .catch((error) => console.log(error));
@@ -112,18 +115,12 @@ class App extends React.Component {
                     <br></br>
                     <Label>{this.state.label}</Label>
                     <Row vertical='center'>
-                      <ImageComponent images= {this.state.urls}> </ImageComponent>
+                      <ImageComponent images= {this.state.urls} desc ={this.state.imageDesc} > </ImageComponent>
                     </Row>
-                    <ButtonComponent/>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-
+                    <ButtonComponent />
                     <Row>
                       <BottomComponent/>
                     </Row>
-
                   </Column>
                   <Column flexGrow={1}>
                     <Price>{this.state.price}</Price>

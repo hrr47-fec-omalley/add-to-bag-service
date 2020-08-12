@@ -22,16 +22,16 @@ class BottomComponent extends React.Component {
     return (
       <div>
         <DescRow>
-          Available for delivary in select locations.
+          <img style ={{width:'35px', height: '35px'}}src='/images/truck.png'/> for delivary in select locations.
         </DescRow>
         <DescRow>
-          Looking to book assembly services?
+          <img style ={{width: '35px', height: '35px'}}src='/images/rabbit.png'/>Looking to book assembly services?
         </DescRow>
         <DescRow>
           Out of stock at AZ, Temp.
         </DescRow>
         <DescRow>
-          You have 365 days to change your mind.
+          <img style ={{width:'15px', height: '15px'}}src='/images/aheart.png'/> You have 365 days to change your mind.
         </DescRow>
       </div>
     );
