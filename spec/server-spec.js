@@ -1,12 +1,14 @@
-const app = require('../server/index.js');
+const app = require('../server/server.js');
 const axios = require('axios');
 global.$ = require('jquery');
+var mocha = require('mocha');
 
 
 describe('sample get request', () => {
   test('server has urls', () => {
     const callback = (data) => {
       try {
+
         expect(data.length).not.toBe(0);
         done();
       } catch (error) {

@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { Column, Row } from 'simple-flexbox';
 import ScrollMenu from 'react-horizontal-scrolling-menu';
-// import heart from '../../public/images/heart.png';
-
+import { ToastContainer, toast} from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
 const Btn = styled.button`
 height: 3.5rem;
     background: #0058a3;
@@ -21,7 +21,9 @@ height: 3.5rem;
     font-weight: 700;
     font-size: .875rem;
     line-height: 1.42857;
-    width:fit-content;
+    width:300px;
+    justify-content:center;
+
     `;
 
 const HeartBtn = styled.button`
@@ -37,6 +39,10 @@ const HeartBtn = styled.button`
   margin-top:100px;
 `;
 
+window.toast = toast;
+
+toast.configure();
+
 //* Pen-specific styles */
 class ButtonComponent extends React.Component {
   constructor(props) {
@@ -45,6 +51,7 @@ class ButtonComponent extends React.Component {
       label: 'Add to bag'
     };
     this.addToBag = this.addToBag.bind(this);
+    this.notify = this.notify.bind(this);
   }
 
   addToBag(e) {
@@ -53,15 +60,30 @@ class ButtonComponent extends React.Component {
       label: 'Added'
     });
   }
+  notify () {
+    console.log('Got toastinfy');
+    toast.success('Wow so easy !');
+
+    toast.success('Wow so easy!', {
+      position: 'top-right',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
+
   render(props) {
     return (
-      <div style={{marginTop: '-50px'}}>
+      <div style={{marginTop: '100px'}}>
         <Btn onClick={this.addToBag}>{this.state.label}</Btn>
-        {/* <button><img src="./images/heart.png" /></button> */}
-        <HeartBtn></HeartBtn>
+        <HeartBtn onClick={this.notify}></HeartBtn>
+        {/* <button onClick={this.notify}>Notify !</button> */}
+        <ToastContainer />
       </div>
     );
   }
 }
-
 export default ButtonComponent;

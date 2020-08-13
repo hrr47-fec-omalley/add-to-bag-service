@@ -9,6 +9,8 @@ import ButtonComponent from './components/ButtonComp.jsx';
 import ImageComponent from './components/ImageComp.jsx';
 import BottomComponent from './components/BottomComp.jsx';
 import axios from 'axios';
+// import { ToastContainer, toast, Zoom, Bounce } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.min.css';
 
 const Name = styled.h3`
 align-item: right
@@ -60,7 +62,7 @@ class App extends React.Component {
       label: '',
       rating: '',
       urls: [],
-      imageDesc:[]
+      imageDesc: []
     };
     this.fetchId = this.fetchId.bind(this);
   }
@@ -102,6 +104,7 @@ class App extends React.Component {
           </Column>
           <Column flexGrow={1} horizontal='center'>
             <img src='/images/shopping-bag.png'/>
+
             <Row vertical='center'>
               <Column flexGrow={2} flexShrink={2}>
                 <Row>
@@ -135,4 +138,4 @@ class App extends React.Component {
     );
   }
 }
-ReactDom.render(<App />, document.getElementById('root'));
+ReactDom.render(<App />, document.getElementById('app'));

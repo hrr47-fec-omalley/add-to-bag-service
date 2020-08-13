@@ -15,18 +15,14 @@ module.exports = {
         test: /\.(js|jsx)$/,
         include: path.resolve(__dirname, './client'),
         exclude: /(node_modules|bower_components)/,
-        use: {
-          loader: 'babel-loader',
-          // loader: [{
-          //   loader: 'babel-loader',
-          //   loader: 'file-loader',
-          // }],
-
-          options: {
-            presets: ['@babel/preset-react']
-          }
+        loader: 'babel-loader',
+        options: {
+          presets: ['@babel/preset-react']
         }
-      }
+      }, {
+        test: /\.css$/,
+        use: [ 'css-loader'],
+      },
     ]
   }
 };
