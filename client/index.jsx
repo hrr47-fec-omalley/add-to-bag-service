@@ -8,6 +8,7 @@ import Images from './components/ImageComp.jsx';
 import ButtonComponent from './components/ButtonComp.jsx';
 import ImageComponent from './components/ImageComp.jsx';
 import BottomComponent from './components/BottomComp.jsx';
+import Toast from './components/Toast.jsx';
 import axios from 'axios';
 // import { ToastContainer, toast, Zoom, Bounce } from 'react-toastify';
 // import 'react-toastify/dist/ReactToastify.min.css';
@@ -30,27 +31,27 @@ align-item: right;
 font-size: 1.1rem;
 flex-wrap: wrap;
 display: flex;
-
+width:230px;
+margin-top: -5px;
 ;`;
 
 const Price = styled.h3`
 align-item: left;
-font-size: .975rem;
+font-size: 1.5rem;
 line-height: 1.45455;
 display: flex;
+margin-left:-70px
+
 ;`;
 
 const Label = styled.span`
 color: #111;
-font-size: .875rem;
+font-size: 1.8rem;
 line-height: 1.57143;
 font-weight: 700;
 display: block;
 ;`;
 
-const heartBtn = styled.button`
-    background: '/images/heart.png';
-    `;
 
 class App extends React.Component {
 
@@ -93,6 +94,7 @@ class App extends React.Component {
   render() {
     console.log('urls new :', this.state.urls);
     return (
+
       <st flexGrow={1} >
         <Row horizontal='center'>
           <TopSpace>MYKEA</TopSpace>
@@ -103,10 +105,13 @@ class App extends React.Component {
             <span> column 1 content </span>
           </Column>
           <Column flexGrow={1} horizontal='center'>
+
             <img src='/images/shopping-bag.png'/>
 
             <Row vertical='center'>
+
               <Column flexGrow={2} flexShrink={2}>
+
                 <Row>
                   <Column flexGrow={1}>
                     <Name>{this.state.name}</Name>
@@ -116,17 +121,17 @@ class App extends React.Component {
                     <br></br>
                     <br></br>
                     <br></br>
-                    <Label>{this.state.label}</Label>
+                    <Label style={{marginTop: '-50px'}}>{this.state.label}</Label>
                     <Row vertical='center'>
                       <ImageComponent images= {this.state.urls} desc ={this.state.imageDesc} > </ImageComponent>
                     </Row>
-                    <ButtonComponent />
+                    <ButtonComponent name= {this.state.name}/>
                     <Row>
                       <BottomComponent/>
                     </Row>
                   </Column>
                   <Column flexGrow={1}>
-                    <Price>{this.state.price}</Price>
+                    <Price>${this.state.price}.00</Price>
                   </Column>
                 </Row>
 

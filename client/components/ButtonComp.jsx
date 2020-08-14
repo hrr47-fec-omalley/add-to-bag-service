@@ -1,9 +1,13 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 import { Column, Row } from 'simple-flexbox';
 import ScrollMenu from 'react-horizontal-scrolling-menu';
-import { ToastContainer, toast} from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
+// import { ToastContainer, toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Toast from './Toast.jsx';
+
+var test;
+
 const Btn = styled.button`
 height: 3.5rem;
     background: #0058a3;
@@ -36,52 +40,59 @@ const HeartBtn = styled.button`
   background-size: 30px;
   border: none;
   background-color:none;
-  margin-top:100px;
+  margin-top: 40px;
 `;
 
-window.toast = toast;
+// window.toast = toast;
 
-toast.configure();
+// toast.configure();
 
 //* Pen-specific styles */
 class ButtonComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      label: 'Add to bag'
+      label: 'Add to bag',
+      noteName: '',
+      showNote: false
     };
     this.addToBag = this.addToBag.bind(this);
-    this.notify = this.notify.bind(this);
+    this.showToast = this.showToast.bind(this);
+  }
+
+  showToast () {
+    console.log('show toast :', this.props);
+    let shownote = true;
+    this.setState ({
+      noteName: this.props.name,
+      showNote: true
+    }, () => setTimeout(() => this.setState({ showNote: false }), 2000)
+    );
+    console.log('show note value from show toast:', this.state.noteName);
   }
 
   addToBag(e) {
     console.log('clicked from add to bag');
     this.setState({
-      label: 'Added'
-    });
-  }
-  notify () {
-    console.log('Got toastinfy');
-    toast.success('Wow so easy !');
-
-    toast.success('Wow so easy!', {
-      position: 'top-right',
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
+      // label: 'Added + \2713';
+      label: ' ✓  Added'
     });
   }
 
   render(props) {
+    console.log('note from button component:', this.state.showNote);
     return (
-      <div style={{marginTop: '100px'}}>
+      <div >
+
         <Btn onClick={this.addToBag}>{this.state.label}</Btn>
-        <HeartBtn onClick={this.notify}></HeartBtn>
+        {/* <HeartBtn onClick={this.notify}></HeartBtn> */}
         {/* <button onClick={this.notify}>Notify !</button> */}
-        <ToastContainer />
+        <HeartBtn key= '1'
+          className='success'
+          label='Info'
+          onClick={this.showToast}></HeartBtn>
+        <Toast name = {this.state.showNote} noteName = {this.state.noteName}/>
+
       </div>
     );
   }

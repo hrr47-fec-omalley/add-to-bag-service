@@ -9,9 +9,8 @@ const DescRow = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   height: 80px;
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid #eceaea;
   align-content:center;
-
 `;
 
 class BottomComponent extends React.Component {
@@ -20,7 +19,7 @@ class BottomComponent extends React.Component {
   }
   render(props) {
     return (
-      <div>
+      <div style={{width:'360px'}}>
         <DescRow>
           <img style ={{width:'35px', height: '35px'}}src='/images/truck.png'/> for delivary in select locations.
         </DescRow>
@@ -28,6 +27,7 @@ class BottomComponent extends React.Component {
           <img style ={{width: '35px', height: '35px'}}src='/images/rabbit.png'/>Looking to book assembly services?
         </DescRow>
         <DescRow>
+          <img style ={{width: '25px', height: '25px'}}src='/images/stock.png'></img>
           Out of stock at AZ, Temp.
         </DescRow>
         <DescRow>

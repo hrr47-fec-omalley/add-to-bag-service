@@ -14,37 +14,25 @@
     "test": "jest"
   },
   "jest": {
-    "setupFilesAfterEnv": ["./setupTests.js"]
-    ,
+    "setupFilesAfterEnv": [
+      "./setupTests.js"
+    ],
     "testEnvironment": "enzyme",
     "testEnvironmentOptions": {
       "enzymeAdapter": "react16"
     },
-    "snapshotSerializers": ["enzyme-to-json/serializer"]
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
   },
   "dependencies": {
-    "axios": "^0.19.2",
-    "chai": "^4.2.0",
-    "jquery": "^3.5.1",
-    "mocha": "^8.1.1",
-    "mongoose": "^5.9.27",
-    "mongoose-data-seed": "^2.1.6",
-    "objectid": "^3.2.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-horizontal-scrolling-menu": "^0.7.7",
-    "react-hover-grid": "^1.0.9",
-    "react-toast-notifications": "^2.4.0",
-    "react-toastify": "^6.0.8",
-    "request": "^2.88.2",
-    "simple-flexbox": "^2.3.2",
     "@babel/core": "^7.11.1",
-    "babel-loader": "^8.1.0",
-    "dotenv": "^8.2.0",
     "@babel/preset-env": "^7.11.0",
     "@babel/preset-react": "^7.10.4",
+    "axios": "^0.19.2",
     "babel-jest": "^26.3.0",
     "babel-loader": "^8.1.0",
+    "chai": "^4.2.0",
     "css-loader": "^4.2.1",
     "dotenv": "^8.2.0",
     "enzyme": "^3.11.0",
@@ -57,9 +45,22 @@
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-react": "^7.20.5",
     "eslint-plugin-react-hooks": "^4.0.0",
-    "file-loader": "^6.0.0",
     "jest": "^26.4.0",
+    "jquery": "^3.5.1",
+    "mocha": "^8.1.1",
+    "mongoose": "^5.9.27",
+    "mongoose-data-seed": "^2.1.6",
     "mongoose-seed": "^0.6.0",
+    "objectid": "^3.2.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-horizontal-scrolling-menu": "^0.7.7",
+    "react-hover-grid": "^1.0.9",
+    "react-toast-notifications": "^2.4.0",
+    "react-toastify": "^6.0.8",
+    "request": "^2.88.2",
+    "simple-flexbox": "^2.3.2",
+    "styled-components": "^5.1.1",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
@@ -74,5 +75,10 @@
   "bugs": {
     "url": "https://github.com/hrr47-fec-omalley/add-to-bag-service/issues"
   },
-  "homepage": "https://github.com/hrr47-fec-omalley/add-to-bag-service#readme"
+  "homepage": "https://github.com/hrr47-fec-omalley/add-to-bag-service#readme",
+  "devDependencies": {
+    "file-loader": "^6.0.0",
+    "url-loader": "^4.1.0",
+    "webpack-config-merge": "^1.0.3"
+  }
 }

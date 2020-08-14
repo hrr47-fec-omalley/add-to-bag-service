@@ -7,10 +7,10 @@ const Thumb = styled.img`
 flex-flow: column wrap;
 font-size: .875rem;
 font-weight: 700;
-width: 50px;
-height: 40px;
+width: 70px;
+height: 60px;
 float: right;
-padding: 20px;
+padding: 3px;
 margin-top: 20px;
 position:relative;
 flex-wrap: wrap;

@@ -56,6 +56,7 @@ var ReviewStars = function (props) {
             <IconStar />
           </S.FrontDiv>
         </S.BackStarsDiv>
+        <S.RatingSpan>{props.stars || "5"}</S.RatingSpan>
       </S.WrapperDiv>
     </React.Fragment>
   );
