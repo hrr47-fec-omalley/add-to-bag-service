@@ -4,38 +4,47 @@ import styled, { keyframes } from 'styled-components';
 // import './Toast.css';
 const ToastAnimation = keyframes`
   from {
-    top: 8vh;
-    left: 80vw;
+    top: 40px;
+    right: 3px;
   }
   to {
-    top: 8vh;
-    left: 72vw;
+    top: 40px;
+    right: 10px;
   }
 `;
 
 const position = styled.div`
-  top: 12px;
-  right: 12px;
+  top: 40px;
+  right: 10px;
   transition: transform .6s ease-in-out;
   animation: ${ToastAnimation} 1s;
 ;`;
 
 
 const ToastContainer = styled.div`
-  font-size: 14px;
+  font-size: 12px;
   box-sizing: border-box;
   transition: transform .6s ease-in-out;
-  animation: ${ToastAnimation} 1s;
-;`;
 
+;`;
 
 const ToastNotification = styled.div`
   color: white;
   background: black;
   font-size: 17px;
   padding: 15px 7px 15px 15px;
-  width: 230px;
+  width: 350px;
   font-fami;y: 'Noto Sans'
+
+`;
+
+const Ddiv = styled.div`
+position:absolute;
+top:40px;
+right:10px;
+position:${position};
+animation:${ToastAnimation} 1s;
+
 `;
 
 class Toast extends React.Component {
@@ -60,21 +69,21 @@ class Toast extends React.Component {
     const t = this.props;
     const note = this.props.name;
     window.abc = this.props;
-    console.log("Got Note.........1", note);
+    console.log('Got Note.........1', note);
     if (note) {
-      console.log("Got Note.........2 noteval->" + note);
+      console.log('Got Note.........2 noteval->' + note);
     }
     return (
-      <>
+      <Ddiv>
         { note && (
           <ToastContainer>
             <ToastNotification>
-             {this.props.noteName} was saved to the shopping list
+              {this.props.noteName} was saved to the shopping list
             </ToastNotification>
           </ToastContainer>
         )
         }
-      </>
+      </Ddiv>
     );
   }
 }

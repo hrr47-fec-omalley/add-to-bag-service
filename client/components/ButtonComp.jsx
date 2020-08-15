@@ -16,7 +16,7 @@ height: 3.5rem;
     padding: 0 2.5rem;
     padding-top: 19px;
     margin-right: .9375rem;
-    position: relative;
+    position: absolute;
     display: -webkit-inline-box;
     display: -ms-inline-flexbox;
     display: inline-flex;
@@ -25,23 +25,24 @@ height: 3.5rem;
     font-weight: 700;
     font-size: .875rem;
     line-height: 1.42857;
-    width:300px;
+    width:250px;
     justify-content:center;
+    margin-top:45px
 
     `;
 
-const HeartBtn = styled.button`
-  position:relative;
-  background-image: url(images/heart1.png);
-  background-position: bottom left;
-  background-repeat: no-repeat;
-  width:34px;
-  height:30px;
-  background-size: 30px;
-  border: none;
-  background-color:none;
-  margin-top: 40px;
-`;
+// const HeartBtn = styled.button`
+//   position:relative;
+//   background-image: url(images/heart1.png);
+//   background-position: bottom left;
+//   background-repeat: no-repeat;
+//   width:34px;
+//   height:3.5rem;
+//   background-size: 30px;
+//   border: none;
+//   background-color:inherit;
+//   margin-top: 40px;
+// `;
 
 // window.toast = toast;
 
@@ -87,11 +88,11 @@ class ButtonComponent extends React.Component {
         <Btn onClick={this.addToBag}>{this.state.label}</Btn>
         {/* <HeartBtn onClick={this.notify}></HeartBtn> */}
         {/* <button onClick={this.notify}>Notify !</button> */}
-        <HeartBtn key= '1'
+        {/* <HeartBtn key= '1'
           className='success'
           label='Info'
-          onClick={this.showToast}></HeartBtn>
-        <Toast name = {this.state.showNote} noteName = {this.state.noteName}/>
+          onClick={this.showToast}></HeartBtn> */}
+        {/* <Toast name = {this.state.showNote} noteName = {this.state.noteName}/> */}
 
       </div>
     );
