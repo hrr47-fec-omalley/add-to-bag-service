@@ -11,7 +11,9 @@
     "start": "npm run build",
     "build": "webpack -p --watch && webpack-dev-server",
     "dev": "nodemon ./server/server.js",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage --colors"
   },
   "jest": {
     "setupFilesAfterEnv": [
@@ -23,14 +25,20 @@
     },
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
+    ],
+    "transform": {
+      "^.+\\.js?$": "babel-jest"
+    },
+    "transformIgnorePatterns": [
+      "!node_modules/react-runtime"
     ]
   },
   "dependencies": {
     "@babel/core": "^7.11.1",
+    "@babel/polyfill": "^7.10.4",
     "@babel/preset-env": "^7.11.0",
     "@babel/preset-react": "^7.10.4",
     "axios": "^0.19.2",
-    "babel-jest": "^26.3.0",
     "babel-loader": "^8.1.0",
     "chai": "^4.2.0",
     "css-loader": "^4.2.1",
@@ -41,9 +49,6 @@
     "eslint": "^7.2.0",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor.git",
-    "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-jsx-a11y": "^6.3.1",
-    "eslint-plugin-react": "^7.20.5",
     "eslint-plugin-react-hooks": "^4.0.0",
     "jest": "^26.4.0",
     "jquery": "^3.5.1",
@@ -57,7 +62,6 @@
     "react-horizontal-scrolling-menu": "^0.7.7",
     "react-hover-grid": "^1.0.9",
     "react-toast-notifications": "^2.4.0",
-    "react-toastify": "^6.0.8",
     "request": "^2.88.2",
     "simple-flexbox": "^2.3.2",
     "styled-components": "^5.1.1",
@@ -77,6 +81,11 @@
   },
   "homepage": "https://github.com/hrr47-fec-omalley/add-to-bag-service#readme",
   "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.11.0",
+    "babel-jest": "^26.3.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-react": "^7.20.6",
     "file-loader": "^6.0.0",
     "url-loader": "^4.1.0",
     "webpack-config-merge": "^1.0.3"
