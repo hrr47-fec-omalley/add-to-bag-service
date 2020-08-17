@@ -1,20 +1,47 @@
 const seeder = require('mongoose-seed');
-const Product = require('./model/product');
+const Product = require('../server/model/product.js');
 
 const db = 'mongodb+srv://admin:admin@cluster0.mdtqx.mongodb.net/mykea?retryWrites=true&w=majority';
 
 var sampleProduct = {
   'pid': 1,
   'name': 'FRIHETEN',
-  'label': 'FRIHETEN',
+  'label': 'cover',
   'rating': 4,
   'images': [
     {
       'name': 'blue cover',
-      'imageUrl': 'https://fecproductimages.s3-us-west-1.amazonaws.com/aleksandra-khoroshykh-f0vQ-o8XVjM-unsplash+copy+2.jpg'
+      'imageUrl': 'https://fecproductimages.s3-us-west-1.amazonaws.com/Screen+Shot+2020-08-12+at+7.12.27+PM.png'
+    },
+    {'name': 'Green cover',
+      'imageUrl':'https://fecproductimages.s3-us-west-1.amazonaws.com/Screen+Shot+2020-08-12+at+7.12.58+PM.png'
+    },
+    {
+      'name': 'Black cover',
+      'imageUrl': 'https://fecproductimages.s3-us-west-1.amazonaws.com/Screen+Shot+2020-08-12+at+7.13.03+PM.png'
+
+    },
+    {
+      'name': 'Black & white',
+      'imageUrl': 'https://fecproductimages.s3-us-west-1.amazonaws.com/Screen+Shot+2020-08-12+at+7.13.11+PM.png'
+    }
+  ],
+  'price': 300,
+};
+
+var sampleProduct2 = {
+  'pid': 2,
+  'name': 'HOLMSUND',
+  'label': 'cover',
+  'rating': 4,
+  'images': [
+    {
+      'name': 'blue cover',
+      'imageUrl': 'https://fecproductimages.s3-us-west-1.amazonaws.com/Screen+Shot+2020-08-12+at+7.12.27+PM.png'
     },
     {'name': 'Green cover',
       'imageUrl': 'https://fecproductimages.s3-us-west-1.amazonaws.com/aleksandra-khoroshykh-f0vQ-o8XVjM-unsplash+copy+3.jpg'
+
     },
     {
       'name': 'Black cover',
@@ -26,8 +53,11 @@ var sampleProduct = {
       'imageUrl': 'https://fecproductimages.s3-us-west-1.amazonaws.com/aleksandra-khoroshykh-f0vQ-o8XVjM-unsplash.jpg'
     }
   ],
-  'price': 300,
+  'price': 500,
 };
+
+var productArr = [sampleProduct2, sampleProduct];
+
 
 const initProducts = () => {
   var data = [
@@ -36,23 +66,26 @@ const initProducts = () => {
       'documents': []
     }];
 
-  for (let i = 0; i < 20; i++) {
-    var product = {
-      pid: sampleProduct.pid + i,
-      name: sampleProduct.name + i,
-      label: sampleProduct.label,
-      images: sampleProduct.images,
-      rating: sampleProduct.rating,
-      price: sampleProduct.price
-    };
-    data[0].documents.push(product);
+  for (let j = 0; j < productArr.length; j++) {
+    for (let i = 0; i < 100; i++) {
+      var product = {
+        pid: i,
+        name: sampleProduct.name + i,
+        label: sampleProduct.label,
+        images: sampleProduct.images,
+        rating: sampleProduct.rating,
+        price: sampleProduct.price
+      };
+      data[0].documents.push(product);
+    }
   }
   return data;
 };
 
+
 seeder.connect(db, function() {
   seeder.loadModels([
-    './model/product.js'
+    './server/model/product.js'
   ]);
   seeder.clearModels(['product'], function() {
     var data = initProducts();
@@ -62,6 +95,5 @@ seeder.connect(db, function() {
   });
 
 });
-
 
 module.exports = db;

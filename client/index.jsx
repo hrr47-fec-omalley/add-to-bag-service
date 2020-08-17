@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import Grid from './components/Hgrid.jsx';
 import { Column, Row } from 'simple-flexbox';
 import styled from 'styled-components';
 import Stars from './components/ReviewStar.jsx';
@@ -8,7 +7,9 @@ import Images from './components/ImageComp.jsx';
 import ButtonComponent from './components/ButtonComp.jsx';
 import ImageComponent from './components/ImageComp.jsx';
 import BottomComponent from './components/BottomComp.jsx';
+import Toast from './components/Toast.jsx';
 import axios from 'axios';
+import Ball from './components/BallComp.jsx';
 
 const Name = styled.h3`
 align-item: right
@@ -28,27 +29,61 @@ align-item: right;
 font-size: 1.1rem;
 flex-wrap: wrap;
 display: flex;
-
+width:230px;
+margin-top: -5px;
 ;`;
 
 const Price = styled.h3`
 align-item: left;
-font-size: .975rem;
+font-size: 1.5rem;
 line-height: 1.45455;
 display: flex;
+margin-left:-70px
+
 ;`;
 
 const Label = styled.span`
 color: #111;
-font-size: .875rem;
+font-size: 1.2rem;
+line-height: 1.57143;
+font-weight: 700;
+display: flex;
+position: relative;
+justify-content:space-between;
+&:after {
+  content: '>';
+
+}
+;`;
+
+const Arrow = styled.span`
+color: #111;
+font-size: 1.2rem;
 line-height: 1.57143;
 font-weight: 700;
 display: block;
+content: '>';
 ;`;
 
-const heartBtn = styled.button`
-    background: '/images/heart.png';
-    `;
+const dollar = styled.sup`
+  font-size: 10px;
+  font-weight:100;
+;`;
+
+const HeartBtn = styled.button`
+  position:absolute;
+  margin-top: 340px;
+  align-self: flex-end;
+  background-image: url(images/heart1.png);
+  background-position: bottom left;
+  background-repeat: no-repeat;
+  width:34px;
+  height:3.5rem;
+  background-size: 30px;
+  border: none;
+  background-color:inherit;
+`;
+
 
 class App extends React.Component {
 
@@ -60,9 +95,10 @@ class App extends React.Component {
       label: '',
       rating: '',
       urls: [],
-      imageDesc:[]
+      imageDesc: []
     };
     this.fetchId = this.fetchId.bind(this);
+    this.showToast = this.showToast.bind(this);
   }
 
   componentDidMount() {
@@ -75,33 +111,51 @@ class App extends React.Component {
         console.log('data from fetch ID : ', data[0]);
         var imagUrls = data[0].images.map(i => i.imageUrl);
         var desc = data[0].images.map(i => i.name);
-        console.log("new images..", desc);
+        console.log('new images..', desc);
         this.setState({
           name: data[0].name,
           price: data[0].price,
           label: data[0].label,
           rating: data[0].rating,
           urls: [...imagUrls],
-          imageDesc: [...desc]
+          imageDesc: [...desc],
+          showNote: false,
+          noteName: ''
         });
       })
       .catch((error) => console.log(error));
   }
 
-  render() {
+
+
+  showToast () {
+    console.log('show toast :', this.props);
+    let shownote = true;
+    this.setState ({
+      noteName: this.state.name,
+      showNote: true
+    }, () => setTimeout(() => this.setState({ showNote: false }), 1000)
+    );
+    console.log('show note value from show toast:', this.state.noteName);
+  }
+
+  render () {
     console.log('urls new :', this.state.urls);
     return (
+
       <st flexGrow={1} >
         <Row horizontal='center'>
           <TopSpace>MYKEA</TopSpace>
+          <Toast name = {this.state.showNote} noteName = {this.state.noteName}/>
         </Row>
+
         <Row vertical='center'>
           <Column flexGrow={4} horizontal='center'>
             <h3> Column 1 </h3>
             <span> column 1 content </span>
           </Column>
           <Column flexGrow={1} horizontal='center'>
-            <img src='/images/shopping-bag.png'/>
+            {/* <img src='/images/shopping-bag.png'/> */}
             <Row vertical='center'>
               <Column flexGrow={2} flexShrink={2}>
                 <Row>
@@ -111,19 +165,24 @@ class App extends React.Component {
                     <Stars></Stars>
                     <br></br>
                     <br></br>
+                    <div style={{borderBottom: '1px solid #eceaea'}}></div>
                     <br></br>
                     <br></br>
-                    <Label>{this.state.label}</Label>
+                    <Label style={{marginTop: '-20px'}}>{this.state.label} <Arrow/></Label>
                     <Row vertical='center'>
                       <ImageComponent images= {this.state.urls} desc ={this.state.imageDesc} > </ImageComponent>
                     </Row>
-                    <ButtonComponent />
+                    <ButtonComponent name= {this.state.name}/>
+                    <HeartBtn key= '1'
+                      className='success'
+                      label='Info'
+                      onClick={this.showToast}></HeartBtn>
                     <Row>
                       <BottomComponent/>
                     </Row>
                   </Column>
                   <Column flexGrow={1}>
-                    <Price>{this.state.price}</Price>
+                    <Price><sup>$</sup>{this.state.price}<sup>.00</sup></Price>
                   </Column>
                 </Row>
 
@@ -135,4 +194,4 @@ class App extends React.Component {
     );
   }
 }
-ReactDom.render(<App />, document.getElementById('root'));
+ReactDom.render(<App />, document.getElementById('app'));

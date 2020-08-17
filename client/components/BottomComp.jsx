@@ -9,7 +9,7 @@ const DescRow = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   height: 80px;
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid #eceaea;
   align-content:center;
 
 `;
@@ -20,15 +20,16 @@ class BottomComponent extends React.Component {
   }
   render(props) {
     return (
-      <div>
+      <div style={{width: '360px', marginTop: '120px'}}>
         <DescRow>
-          <img style ={{width:'35px', height: '35px'}}src='/images/truck.png'/> for delivary in select locations.
+          <img style ={{width:'35px', height: '35px'}}src='/images/truck.png'/> for delivary in select locations<img style ={{width:'10px', height: '10px', alignSelf: 'center'}}src='/images/dot.png'/>
         </DescRow>
         <DescRow>
           <img style ={{width: '35px', height: '35px'}}src='/images/rabbit.png'/>Looking to book assembly services?
         </DescRow>
         <DescRow>
-          Out of stock at AZ, Temp.
+          <img style ={{width: '25px', height: '25px'}}src='/images/stock.png'></img>
+          Out of stock at AZ, Temp<img style ={{width:'5px', height: '5px', alignSelf: 'center'}}src='/images/red.png'/>
         </DescRow>
         <DescRow>
           <img style ={{width:'15px', height: '15px'}}src='/images/aheart.png'/> You have 365 days to change your mind.
