@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
 
-// import './Toast.css';
 const ToastAnimation = keyframes`
   from {
     top: 40px;

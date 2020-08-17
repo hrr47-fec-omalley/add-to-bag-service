@@ -1,7 +1,11 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-console */
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable array-callback-return */
+/* eslint-disable react/prop-types */
 import React from 'react';
 import styled from 'styled-components';
 import { Column, Row } from 'simple-flexbox';
-import ScrollMenu from 'react-horizontal-scrolling-menu';
 
 const Wrapper = styled.div`
 border: solid 1px transparent;
@@ -35,49 +39,41 @@ const Description = styled.label`
     font-size: 15px;
 ;`;
 
-
 //* Pen-specific styles */
 class ImageComponent extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {description: ''};
+    this.state = { description: '' };
     this.getInputValue = this.getInputValue.bind(this);
   }
 
-
   getInputValue(descValue) {
-    console.log("desc...", descValue);
     this.setState({
-      description: descValue
+      description: descValue,
     });
   }
 
   render(props) {
-    console.log('Before image from image component :', this.props.images);
-    const images = this.props.images;
-    const desc = this.props.desc;
-    console.log('Got desc :', desc[0]);
-    console.log('Images stored in variable', images);
-
+    const { desc } = this.props;
     const imageList = [];
-    images.map( ( img, index )=> {
+    const { images } = this.props;
+    images.map((img, index) => {
       if (index === 0) {
         imageList.push(
           <Wrapper className="boxes">
             <label className="boxeslevel" htmlFor="text">{this.state.description}</label>
             <Thumb src={img} onMouseOver={() => this.getInputValue(desc[index])} />
-          </Wrapper>
+          </Wrapper>,
         );
       } else {
-        console.log('index in else :', desc[index]);
         imageList.push(
           <div className="boxes">
-            <Thumb src={img} onMouseOver={() => this.getInputValue(desc[index])}/>
-          </div>
+            <Thumb src={img} onMouseOver={() => this.getInputValue(desc[index])} />
+          </div>,
         );
       }
     });
-    console.log("imageList", imageList);
+    console.log('imageList', imageList);
     return imageList;
   }
 }

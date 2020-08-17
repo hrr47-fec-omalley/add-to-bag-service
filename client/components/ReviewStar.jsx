@@ -1,5 +1,10 @@
-import React from "react";
-import styled from "styled-components";
+/* eslint-disable no-undef */
+/* eslint-disable import/extensions */
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable react/prop-types */
+/* eslint-disable func-names */
+import React from 'react';
+import styled from 'styled-components';
 import IconStar from './IconStar.jsx';
 
 const S = {};
@@ -32,17 +37,19 @@ S.FrontDiv = styled.div`
   color: #ffbc0b;
 `;
 
-var ReviewStars = function (props) {
+// eslint-disable-next-line no-undef
+const ReviewStars = function (props) {
   let rating = 0;
 
   /* This is to round the rating to closest .5 or .0 */
+  // eslint-disable-next-line react/destructuring-assignment
+  // eslint-disable-next-line react/prop-types
   if (props.stars) {
-    rating =
-      (((Math.round((props.stars * 10) / 5) * 5) / 10) * 20).toString() + "%";
+    rating = `${(((Math.round((props.stars * 10) / 5) * 5) / 10) * 20).toString()}%`;
   }
 
   return (
-    <React.Fragment>
+    <>
       <S.WrapperDiv>
         <S.BackStarsDiv>
           <IconStar />
@@ -56,9 +63,9 @@ var ReviewStars = function (props) {
             <IconStar />
           </S.FrontDiv>
         </S.BackStarsDiv>
-        <S.RatingSpan>{props.stars || "5"}</S.RatingSpan>
+        <S.RatingSpan>{props.stars}</S.RatingSpan>
       </S.WrapperDiv>
-    </React.Fragment>
+    </>
   );
 };
 

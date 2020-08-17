@@ -1,12 +1,8 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/no-unused-state */
+/* eslint-disable react/destructuring-assignment */
 import React from 'react';
-import styled, {keyframes} from 'styled-components';
-import { Column, Row } from 'simple-flexbox';
-import ScrollMenu from 'react-horizontal-scrolling-menu';
-// import { ToastContainer, toast} from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import Toast from './Toast.jsx';
-
-var test;
+import styled from 'styled-components';
 
 const Btn = styled.button`
 height: 3.5rem;
@@ -27,8 +23,8 @@ height: 3.5rem;
     line-height: 1.42857;
     width:250px;
     justify-content:center;
-    margin-top:45px
-
+    margin-top:45px;
+    name:bag;
     `;
 
 // const HeartBtn = styled.button`
@@ -44,10 +40,6 @@ height: 3.5rem;
 //   margin-top: 40px;
 // `;
 
-// window.toast = toast;
-
-// toast.configure();
-
 //* Pen-specific styles */
 class ButtonComponent extends React.Component {
   constructor(props) {
@@ -55,36 +47,29 @@ class ButtonComponent extends React.Component {
     this.state = {
       label: 'Add to bag',
       noteName: '',
-      showNote: false
+      showNote: false,
     };
     this.addToBag = this.addToBag.bind(this);
     this.showToast = this.showToast.bind(this);
   }
 
-  showToast () {
-    console.log('show toast :', this.props);
-    let shownote = true;
-    this.setState ({
+  showToast() {
+    this.setState({
       noteName: this.props.name,
-      showNote: true
-    }, () => setTimeout(() => this.setState({ showNote: false }), 2000)
-    );
-    console.log('show note value from show toast:', this.state.noteName);
+      showNote: true,
+    }, () => setTimeout(() => this.setState({ showNote: false }), 2000));
   }
 
-  addToBag(e) {
-    console.log('clicked from add to bag');
+  addToBag() {
     this.setState({
       // label: 'Added + \2713';
-      label: ' ✓  Added'
+      label: ' ✓  Added',
     });
   }
 
-  render(props) {
-    console.log('note from button component:', this.state.showNote);
+  render() {
     return (
-      <div >
-
+      <div>
         <Btn onClick={this.addToBag}>{this.state.label}</Btn>
         {/* <HeartBtn onClick={this.notify}></HeartBtn> */}
         {/* <button onClick={this.notify}>Notify !</button> */}

@@ -1,8 +1,9 @@
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable func-names */
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
 import React from 'react';
 import styled from 'styled-components';
-import { Column, Row } from 'simple-flexbox';
-import ScrollMenu from 'react-horizontal-scrolling-menu';
-
 
 const DescRow = styled.div`
   display: flex;
@@ -11,33 +12,36 @@ const DescRow = styled.div`
   height: 80px;
   border-bottom: 1px solid #eceaea;
   align-content:center;
-
 `;
 
-class BottomComponent extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-  render(props) {
-    return (
-      <div style={{width: '360px', marginTop: '120px'}}>
-        <DescRow>
-          <img style ={{width:'35px', height: '35px'}}src='/images/truck.png'/> for delivary in select locations<img style ={{width:'10px', height: '10px', alignSelf: 'center'}}src='/images/dot.png'/>
-        </DescRow>
-        <DescRow>
-          <img style ={{width: '35px', height: '35px'}}src='/images/rabbit.png'/>Looking to book assembly services?
-        </DescRow>
-        <DescRow>
-          <img style ={{width: '25px', height: '25px'}}src='/images/stock.png'></img>
-          Out of stock at AZ, Temp<img style ={{width:'5px', height: '5px', alignSelf: 'center'}}src='/images/red.png'/>
-        </DescRow>
-        <DescRow>
-          <img style ={{width:'15px', height: '15px'}}src='/images/aheart.png'/> You have 365 days to change your mind.
-        </DescRow>
-      </div>
-    );
-  }
-}
+// class BottomComponent extends React.Component {
+//   constructor(props) {
+//     super(props);
+//   }
+const BottomComponent = function () {
+  return (
+    <div style={{ width: '360px', marginTop: '120px' }}>
+      <DescRow>
+        <img style={{ width: '35px', height: '35px' }} alt="img1" src="images/truck.png" />
+        for delivary in select locations
+        <img style={{ width: '10px', height: '10px' }} alt="img2" src="/images/dot.png" />
+      </DescRow>
+      <DescRow>
+        <img style={{ width: '35px', height: '35px' }} src="/images/rabbit.png" />
+        Looking to book assembly services?
+      </DescRow>
+      <DescRow>
+        <img style={{ width: '20px', height: '20px' }} src="/images/stock.png" />
+        Out of stock at AZ, Temp
+        <img style={{ width: '5px', height: '5px', alignSelf: 'center' }} src="/images/red.png" />
+      </DescRow>
+      <DescRow>
+        <img style={{ width: '15px', height: '15px' }} src="/images/aheart.png" alt="" />
+        {' '}
+        You have 365 days to change your mind.
+      </DescRow>
+    </div>
+  );
+};
 
 export default BottomComponent;
-
