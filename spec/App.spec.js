@@ -1,4 +1,8 @@
-import { shallow, mount, render, configure } from 'enzyme';
+/* eslint-disable no-undef */
+/* eslint-disable func-names */
+/* eslint-disable import/extensions */
+/* eslint-disable no-unused-vars */
+import { shallow, mount } from 'enzyme';
 import React from 'react';
 import Adapter from 'enzyme-adapter-react-16';
 // import renderer from 'react-test-renderer';
@@ -6,8 +10,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import ButtonComp from '../client/components/ButtonComp.jsx';
 import ImageComp from '../client/components/ImageComp.jsx';
 
-
-const setup = function() {
+const setup = function () {
   const props = {
     imgPath: '/images/',
   };
@@ -24,10 +27,9 @@ const setup = function() {
 
 // const wrapper = shallow(<ButtonComp/>);
 // expect(wrapper.find('button')).to.equal(1);
-
 it('works', () => {
   const wrap = mount(
-    <ButtonComp name='bag' />
+    <ButtonComp name="bag" />,
   );
 
   expect(wrap.text()).toEqual('Add to bag');
@@ -61,7 +63,6 @@ it('works', () => {
 //   });
 // });
 
-
 // describe('buttonComp', () => {
 //   let wrapper;
 //   beforeEach(() => {
@@ -72,9 +73,6 @@ it('works', () => {
 //     expect(wrapper.find('div.container'));
 //   });
 // });
-
-
-
 
 // test('hello world', () => {
 //   const wrapper = mount(<p>Hello Jest!</p>);

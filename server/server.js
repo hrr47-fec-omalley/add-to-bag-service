@@ -1,32 +1,33 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable no-console */
 const express = require('express');
 const mongoose = require('mongoose');
-const services = require('./services');
+const bodyParser = require('body-parser');
 const path = require('path');
+const services = require('./services');
 
 const Product = require('./model/product');
-const env = require('dotenv').config();
 
-const bodyParser = require('body-parser');
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(__dirname + '/../public'));
+app.use(express.static(`${__dirname}/../public`));
 
 // app.use('/products/:pid', express.static('public'));
 
-const dbName = process.env.DB_NAME;
+// const dbName = process.env.DB_NAME;
 
-mongoose.connect('mongodb+srv://admin:admin@cluster0.mdtqx.mongodb.net/mykea?retryWrites=true&w=majority', err => {
+mongoose.connect('mongodb+srv://admin:admin@cluster0.mdtqx.mongodb.net/mykea?retryWrites=true&w=majority', (err) => {
   if (err) {
     console.log(err);
   }
-}
-);
+});
 
 app.get('/product/:pid', (req, res) => {
-  let pid = req.params.pid;
+  const { pid } = req.params;
   console.log('IDDDDddddd: ', pid.toString());
-  Product.find(({ pid: pid}), function (err, data) {
+  Product.find(({ pid }), (err, data) => {
     if (err) {
       console.log(err);
     } else {
@@ -35,7 +36,7 @@ app.get('/product/:pid', (req, res) => {
   });
 });
 
-const port = 5000;
+const port = 3003;
 
 app.listen(port, () => {
   console.log(`Connected to server on port ${port}`);
