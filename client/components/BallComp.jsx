@@ -18,7 +18,7 @@ class ButtonsContainer extends React.Component {
   constructor() {
     super();
     this.state = {
-      buttons: [{ backgroundImage: '/images/heart.png' }, { backgroundImage: '/images/check.png' }],
+      buttons: [{ backgroundImage: 'https://fecproductimages.s3-us-west-1.amazonaws.com/MykeaImages/heart.png' }, { backgroundImage: 'https://fecproductimages.s3-us-west-1.amazonaws.com/MykeaImages/check.png' }],
     };
   }
 

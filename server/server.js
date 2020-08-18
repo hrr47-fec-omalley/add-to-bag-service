@@ -14,6 +14,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(`${__dirname}/../public`));
 
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
+
 // app.use('/products/:pid', express.static('public'));
 
 // const dbName = process.env.DB_NAME;
@@ -25,6 +30,17 @@ mongoose.connect('mongodb+srv://admin:admin@cluster0.mdtqx.mongodb.net/mykea?ret
 });
 
 app.get('/product/:pid', (req, res) => {
+  const { pid } = req.params;
+  console.log('IDDDDddddd: ', pid.toString());
+  Product.find(({ pid }), (err, data) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.json(data);
+    }
+  });
+});
+app.get('/', (req, res) => {
   const { pid } = req.params;
   console.log('IDDDDddddd: ', pid.toString());
   Product.find(({ pid }), (err, data) => {
