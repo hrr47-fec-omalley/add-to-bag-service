@@ -9,8 +9,8 @@
   "scripts": {
     "seed": "node ./server/seeder.js",
     "start": "npm run build",
-    "build": "webpack -p --watch && webpack-dev-server",
-    "dev": "nodemon ./server/server.js",
+    "client": "webpack -p --watch && webpack-dev-server",
+    "server": "nodemon ./server/server.js",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage --colors"

@@ -45,6 +45,7 @@ class ImageComponent extends React.Component {
     super(props);
     this.state = { description: '' };
     this.getInputValue = this.getInputValue.bind(this);
+    console.log('test from ImageComponent');
   }
 
   getInputValue(descValue) {

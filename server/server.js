@@ -29,7 +29,18 @@ mongoose.connect('mongodb+srv://admin:admin@cluster0.mdtqx.mongodb.net/mykea?ret
   }
 });
 
-app.get('http://localhost:3010/product/:pid', (req, res) => {
+app.get('/product/:pid', (req, res) => {
+  const { pid } = req.params;
+  console.log('IDDDDddddd: ', pid.toString());
+  Product.find(({ pid }), (err, data) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.json(data);
+    }
+  });
+});
+app.get('/', (req, res) => {
   const { pid } = req.params;
   console.log('IDDDDddddd: ', pid.toString());
   Product.find(({ pid }), (err, data) => {
@@ -41,7 +52,7 @@ app.get('http://localhost:3010/product/:pid', (req, res) => {
   });
 });
 
-const port = 3010;
+const port = 3003;
 
 app.listen(port, () => {
   console.log(`Connected to server on port ${port}`);

@@ -1,0 +1,22 @@
+{
+	"folders": [
+		{
+			"name": "add-to-bag-proxy",
+			"path": "../../add-to-bag-proxy"
+		},
+		{
+			"name": "add-to-bag-service",
+			"path": ".."
+		},
+		{
+			"path": "../../similar-products-service"
+		},
+		{
+			"path": "../../main-title-pictures-service"
+		}
+	],
+	"settings": {
+		"emmet.showExpandedAbbreviation": "never",
+		"javascript.validate.enable": false
+	}
+}

@@ -1,3 +1,5 @@
+/* eslint-disable class-methods-use-this */
+/* eslint-disable react/sort-comp */
 /* eslint-disable max-len */
 /* eslint-disable no-undef */
 /* eslint-disable react/jsx-no-comment-textnodes */
@@ -86,7 +88,7 @@ const HeartBtn = styled.button`
   position:absolute;
   margin-top: 340px;
   align-self: flex-end;
-  background-image: url(images/heart1.png);
+  background-image: url(https://fecproductimages.s3-us-west-1.amazonaws.com/MykeaImages/heart1.png);
   background-position: bottom left;
   background-repeat: no-repeat;
   width:34px;
@@ -96,7 +98,7 @@ const HeartBtn = styled.button`
   background-color:inherit;
   id:heart;
   :active:after{
-    background-image: url(images/check.png);
+    background-image: url(https://fecproductimages.s3-us-west-1.amazonaws.com/MykeaImages/check.png);
 
   }
 `;
@@ -118,10 +120,12 @@ class App extends React.Component {
 
   componentDidMount() {
     this.fetchId(1);
+    // this.getDummyData();
   }
 
   fetchId(id) {
-    axios.get(`/product/${id}`)
+    axios.get(`http://localhost:3003/product/${id}`)
+    // axios.get('/')
       .then(({ data }) => {
         const imagUrls = data[0].images.map((i) => i.imageUrl);
         const desc = data[0].images.map((i) => i.name);
@@ -138,6 +142,16 @@ class App extends React.Component {
       })
       .catch((error) => console.log(error));
   }
+
+  // getDummyData() {
+  //   axios.get('/')
+  //     .then((data) => {
+  //       console.log(data);
+  //     })
+  //     .catch((err) => {
+  //       throw err;
+  //     });
+  // }
 
   showToast(e) {
     console.log('show toast :', this.props);
@@ -159,7 +173,6 @@ class App extends React.Component {
           <TopSpace>MYKEA</TopSpace>
           <Toast name={this.state.showNote} noteName={this.state.noteName} />
         </Row>
-
         <Row vertical="center">
           <Column flexGrow={4} horizontal="center">
             <h3> Column 1 </h3>
@@ -215,4 +228,4 @@ class App extends React.Component {
     );
   }
 }
-ReactDom.render(<App />, document.getElementById('app'));
+ReactDom.render(<App />, document.getElementById('addtobag'));

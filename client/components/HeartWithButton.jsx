@@ -1,5 +1,8 @@
-import React from "react";
-import styled from "styled-components";
+/* eslint-disable react/jsx-no-undef */
+/* eslint-disable import/extensions */
+/* eslint-disable no-unused-vars */
+import React from 'react';
+import styled from 'styled-components';
 import IconStar from './Heart.jsx';
 
 const S = {};
@@ -32,18 +35,18 @@ S.FrontDiv = styled.div`
   color: #ffbc0b;
 `;
 
-var HeartButton = function (props) {
-  let rating = 0;
+const HeartButton = function (props) {
+  const rating = 0;
 
   return (
-    <React.Fragment>
+    <>
       <S.WrapperDiv>
         <S.BackHeartDiv>
           <Heart />
         </S.BackHeartDiv>
       </S.WrapperDiv>
-    </React.Fragment>
+    </>
   );
 };
 
-export default ReviewStars;
+export default HeartButton;
