@@ -124,7 +124,7 @@ class App extends React.Component {
   }
 
   fetchId(id) {
-    axios.get(`http://localhost:3003/product/${id}`)
+    axios.get(`bag${window.location.pathname}`)
     // axios.get('/')
       .then(({ data }) => {
         const imagUrls = data[0].images.map((i) => i.imageUrl);
