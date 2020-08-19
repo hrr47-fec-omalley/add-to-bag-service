@@ -26,7 +26,7 @@ import Toast from './components/Toast.jsx';
 import Ball from './components/BallComp.jsx';
 
 const Name = styled.h3`
-align-item: right
+align-item: left
 font-size: 1.375rem;
 line-height: 1.45455;
 font-family: 'sans-serif';
@@ -66,7 +66,6 @@ position: relative;
 justify-content:space-between;
 &:after {
   content: '>';
-
 }
 ;`;
 
@@ -90,13 +89,12 @@ const dollar = styled.sup`
 
 const HeartBtn = styled.button`
   position:absolute;
-  margin-top: 340px;
+  margin-top: 40px;
   align-self: flex-end;
   background-image: url(https://fecproductimages.s3-us-west-1.amazonaws.com/MykeaImages/heart1.png);
   background-position: bottom left;
-  background-repeat: no-repeat;
   width:34px;
-  height:3.5rem;
+  height:1.5rem;
   background-size: 30px;
   border: none;
   background-color:inherit;
@@ -170,60 +168,35 @@ class App extends React.Component {
   render() {
     console.log('urls new :', this.state.urls);
     return (
-      // <st flexGrow={1}>
-      <Column horizontal="left" width="100px" xs>
-        <Row horizontal="center">
-          <Toast name={this.state.showNote} noteName={this.state.noteName} />
-        </Row>
-          {/* <Row vertical="center"> */}
-          {/* <Column flexGrow={4} horizontal="center">
-            <h3> Column 1 </h3>
-            <span> column 1 content </span>
-          </Column> */}
-              {/* <img src='/images/shopping-bag.png'/> */}
-        <Row vertical="center">
-          <Column>
-            <Row>
-              <Column flexGrow={1}>
-                <Name>{this.state.name}</Name>
-                <Desc>Sleeper sectional,3 seat w/storage, Skiftebo dark gray</Desc>
-                <Stars />
-                <br />
-                <br />
-                <div style={{ borderBottom: '1px solid #eceaea' }} />
-                <br />
-                <br />
-                <Label style={{ marginTop: '-20px' }}>
-                  {this.state.label}
-                  {' '}
-                  <Arrow />
-                </Label>
-                <Row vertical="center">
-                  <ImageComponent images={this.state.urls} desc={this.state.imageDesc}> </ImageComponent>
-                </Row>
-                <ButtonComponent name={this.state.name} />
-                <HeartBtn
-                  key="1"
-                  className="success"
-                  label="Info"
-                  onClick={this.showToast}
-                />
-                <Row>
-                  <BottomComponent />
-                </Row>
-              </Column>
-              <Column>
-                <Price>
-                  <sup>$</sup>
-                  {this.state.price}
-                  <sup>.00</sup>
-                </Price>
-              </Column>
-            </Row>
-          </Column>
-        </Row>
-      </Column>
-      // {/* </Row> */}
+      <div style={{ width: '30vw' }}>
+        <Toast name={this.state.showNote} noteName={this.state.noteName} />
+        <Name>{this.state.name}</Name>
+        <Desc>Sleeper sectional,3 seat w/storage, Skiftebo dark gray</Desc>
+        <Stars />
+        <div style={{ borderBottom: '1px solid #eceaea', marginTop: '20px' }} />
+        <div>
+          <Label style={{ marginTop: '12px' }}>
+            {this.state.label}
+            <Arrow />
+          </Label>
+          <div style={{ display: 'flex' }}>
+            <ImageComponent images={this.state.urls} desc={this.state.imageDesc}> </ImageComponent>
+          </div>
+        </div>
+        <ButtonComponent name={this.state.name} />
+        <HeartBtn
+          key="1"
+          className="success"
+          label="Info"
+          onClick={this.showToast}
+        />
+        <BottomComponent />
+        <Price>
+          <sup>$</sup>
+          {this.state.price}
+          <sup>.00</sup>
+        </Price>
+      </div>
     );
   }
 }

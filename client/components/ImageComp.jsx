@@ -15,12 +15,32 @@ width: 100px;
 padding: 15px;
 `;
 
+const firstImage = styled.img`
+flex-flow: column wrap;
+font-size: .875rem;
+font-weight: 700;
+width: 70px;
+height: 40px;
+float: right;
+padding: 3px;
+margin-top: 40px;
+position:relative;
+flex-wrap: wrap;
+:hover {
+  outline: 2px solid black;
+}
+:active {
+  outline: 2px solid black;
+}
+object-fit: cover;
+;`;
+
 const Thumb = styled.img`
 flex-flow: column wrap;
 font-size: .875rem;
 font-weight: 700;
 width: 70px;
-height: 30px;
+height: 40px;
 float: right;
 padding: 3px;
 margin-top: 40px;
@@ -69,7 +89,7 @@ class ImageComponent extends React.Component {
       } else {
         imageList.push(
           <div className="boxes">
-            <Thumb src={img} onMouseOver={() => this.getInputValue(desc[index])} />
+            <Thumb style={{ marginTop: '70px' }} src={img} onMouseOver={() => this.getInputValue(desc[index])} />
           </div>,
         );
       }
