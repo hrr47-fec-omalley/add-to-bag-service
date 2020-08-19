@@ -70,6 +70,10 @@ justify-content:space-between;
 }
 ;`;
 
+const container = styled.div`
+width:100px;
+;`;
+
 const Arrow = styled.span`
 color: #111;
 font-size: 1.2rem;
@@ -120,7 +124,6 @@ class App extends React.Component {
 
   componentDidMount() {
     this.fetchId(1);
-    // this.getDummyData();
   }
 
   fetchId(id) {
@@ -167,64 +170,60 @@ class App extends React.Component {
   render() {
     console.log('urls new :', this.state.urls);
     return (
-
-      <st flexGrow={1}>
+      // <st flexGrow={1}>
+      <Column horizontal="left" width="100px" xs>
         <Row horizontal="center">
-          <TopSpace>MYKEA</TopSpace>
           <Toast name={this.state.showNote} noteName={this.state.noteName} />
         </Row>
-        <Row vertical="center">
-          <Column flexGrow={4} horizontal="center">
+          {/* <Row vertical="center"> */}
+          {/* <Column flexGrow={4} horizontal="center">
             <h3> Column 1 </h3>
             <span> column 1 content </span>
-          </Column>
-          <Column flexGrow={1} horizontal="center">
-            {/* <img src='/images/shopping-bag.png'/> */}
-            <Row vertical="center">
-              <Column flexGrow={2} flexShrink={2}>
-                <Row>
-                  <Column flexGrow={1}>
-                    <Name>{this.state.name}</Name>
-                    <Desc>Sleeper sectional,3 seat w/storage, Skiftebo dark gray</Desc>
-                    <Stars />
-                    <br />
-                    <br />
-                    <div style={{ borderBottom: '1px solid #eceaea' }} />
-                    <br />
-                    <br />
-                    <Label style={{ marginTop: '-20px' }}>
-                      {this.state.label}
-                      {' '}
-                      <Arrow />
-                    </Label>
-                    <Row vertical="center">
-                      <ImageComponent images={this.state.urls} desc={this.state.imageDesc}> </ImageComponent>
-                    </Row>
-                    <ButtonComponent name={this.state.name} />
-                    <HeartBtn
-                      key="1"
-                      className="success"
-                      label="Info"
-                      onClick={this.showToast}
-                    />
-                    <Row>
-                      <BottomComponent />
-                    </Row>
-                  </Column>
-                  <Column flexGrow={1}>
-                    <Price>
-                      <sup>$</sup>
-                      {this.state.price}
-                      <sup>.00</sup>
-                    </Price>
-                  </Column>
+          </Column> */}
+              {/* <img src='/images/shopping-bag.png'/> */}
+        <Row vertical="center">
+          <Column>
+            <Row>
+              <Column flexGrow={1}>
+                <Name>{this.state.name}</Name>
+                <Desc>Sleeper sectional,3 seat w/storage, Skiftebo dark gray</Desc>
+                <Stars />
+                <br />
+                <br />
+                <div style={{ borderBottom: '1px solid #eceaea' }} />
+                <br />
+                <br />
+                <Label style={{ marginTop: '-20px' }}>
+                  {this.state.label}
+                  {' '}
+                  <Arrow />
+                </Label>
+                <Row vertical="center">
+                  <ImageComponent images={this.state.urls} desc={this.state.imageDesc}> </ImageComponent>
                 </Row>
-
+                <ButtonComponent name={this.state.name} />
+                <HeartBtn
+                  key="1"
+                  className="success"
+                  label="Info"
+                  onClick={this.showToast}
+                />
+                <Row>
+                  <BottomComponent />
+                </Row>
+              </Column>
+              <Column>
+                <Price>
+                  <sup>$</sup>
+                  {this.state.price}
+                  <sup>.00</sup>
+                </Price>
               </Column>
             </Row>
           </Column>
         </Row>
-      </st>
+      </Column>
+      // {/* </Row> */}
     );
   }
 }
