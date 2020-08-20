@@ -51,7 +51,7 @@ const Price = styled.h3`
 align-item: left;
 font-size: 1.5rem;
 line-height: 1.45455;
-display: flex;
+display: contents;
 margin-left:-70px
 
 ;`;
@@ -170,12 +170,21 @@ class App extends React.Component {
     return (
       <div style={{ width: '30vw' }}>
         <Toast name={this.state.showNote} noteName={this.state.noteName} />
-        <Name>{this.state.name}</Name>
+        <div style={{ display: 'inline-flex' }}>
+        <Name> {this.state.name}</Name>
+        <Price>
+          <sup>$</sup>
+          {this.state.price}
+          <sup>.00</sup>
+        </Price>
+        </div>
         <Desc>Sleeper sectional,3 seat w/storage, Skiftebo dark gray</Desc>
+        <div style={{ height: '50px' }}>
         <Stars />
         <div style={{ borderBottom: '1px solid #eceaea', marginTop: '20px' }} />
+        </div>
         <div>
-          <Label style={{ marginTop: '12px' }}>
+          <Label style={{ marginTop: '12px', height: '60px' }}>
             {this.state.label}
             <Arrow />
           </Label>
@@ -191,11 +200,7 @@ class App extends React.Component {
           onClick={this.showToast}
         />
         <BottomComponent />
-        <Price>
-          <sup>$</sup>
-          {this.state.price}
-          <sup>.00</sup>
-        </Price>
+
       </div>
     );
   }

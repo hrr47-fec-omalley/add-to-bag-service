@@ -4,7 +4,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Btn = styled.button`
+const BlueBtn = styled.button`
 height: 3.5rem;
     background: #0058a3;
     color: #fff;
@@ -12,11 +12,6 @@ height: 3.5rem;
     padding: 0 2.5rem;
     padding-top: 19px;
     margin-right: .9375rem;
-    position: absolute;
-    display: -webkit-inline-box;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
-    text-decoration: none;
     border: 0;
     font-weight: 700;
     font-size: .875rem;
@@ -24,7 +19,6 @@ height: 3.5rem;
     width:250px;
     justify-content:center;
     margin-top:45px;
-    name:bag;
     `;
 
 // const HeartBtn = styled.button`
@@ -70,7 +64,7 @@ class ButtonComponent extends React.Component {
   render() {
     return (
       <div>
-        <Btn onClick={this.addToBag}>{this.state.label}</Btn>
+        <BlueBtn onClick={this.addToBag}>{this.state.label}</BlueBtn>
         {/* <HeartBtn onClick={this.notify}></HeartBtn> */}
         {/* <button onClick={this.notify}>Notify !</button> */}
         {/* <HeartBtn key= '1'
