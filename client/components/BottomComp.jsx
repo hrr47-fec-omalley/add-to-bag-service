@@ -3,7 +3,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 import React from 'react';
-import styled from 'styled-components';
 
 const DescRow = window.styled.div`
   display: flex;

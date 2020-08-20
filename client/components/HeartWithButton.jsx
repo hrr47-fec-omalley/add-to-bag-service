@@ -2,17 +2,16 @@
 /* eslint-disable import/extensions */
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import styled from 'styled-components';
 import IconStar from './Heart.jsx';
 
 const S = {};
 
-S.WrapperDiv = styled.div`
+S.WrapperDiv = window.styled.div`
   display: flex;
   align-items: center;
 `;
 
-S.RatingSpan = styled.span`
+S.RatingSpan = window.styled.span`
   font-size: 1.0rem;
   font-weight: 700;
   padding: 1px;

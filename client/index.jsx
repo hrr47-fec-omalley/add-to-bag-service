@@ -15,7 +15,6 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import { Column, Row } from 'simple-flexbox';
-import styled from 'styled-components';
 import axios from 'axios';
 import Stars from './components/ReviewStar.jsx';
 import Images from './components/ImageComp.jsx';
@@ -25,7 +24,7 @@ import BottomComponent from './components/BottomComp.jsx';
 import Toast from './components/Toast.jsx';
 import Ball from './components/BallComp.jsx';
 
-const Name = styled.h3`
+const Name = window.styled.h3`
 align-item: left
 font-size: 1.375rem;
 line-height: 1.45455;
@@ -34,11 +33,11 @@ font-weight: 'bold';
 display: flex;
 ;`;
 
-const TopSpace = styled.h1`
+const TopSpace = window.styled.h1`
 height: 180px;
 ;`;
 
-const Desc = styled.p`
+const Desc = window.styled.p`
 align-item: right;
 font-size: 1.1rem;
 flex-wrap: wrap;
@@ -47,7 +46,7 @@ width:230px;
 margin-top: -5px;
 ;`;
 
-const Price = styled.h3`
+const Price = window.styled.h3`
 align-item: left;
 font-size: 1.5rem;
 line-height: 1.45455;
@@ -56,7 +55,7 @@ margin-left:-70px
 
 ;`;
 
-const Label = styled.span`
+const Label = window.styled.span`
 color: #111;
 font-size: 1.2rem;
 line-height: 1.57143;
@@ -69,11 +68,11 @@ justify-content:space-between;
 }
 ;`;
 
-const container = styled.div`
+const container = window.styled.div`
 width:100px;
 ;`;
 
-const Arrow = styled.span`
+const Arrow = window.styled.span`
 color: #111;
 font-size: 1.2rem;
 line-height: 1.57143;
@@ -82,12 +81,12 @@ display: block;
 content: '>';
 ;`;
 
-const dollar = styled.sup`
+const dollar = window.styled.sup`
   font-size: 10px;
   font-weight:100;
 ;`;
 
-const HeartBtn = styled.button`
+const HeartBtn = window.styled.button`
   position:absolute;
   margin-top: 40px;
   align-self: flex-end;

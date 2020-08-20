@@ -2,7 +2,6 @@
 /* eslint-disable react/no-unused-state */
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
-import styled from 'styled-components';
 
 const BlueBtn = window.styled.button`
 height: 3.5rem;
