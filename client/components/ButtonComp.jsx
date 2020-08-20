@@ -4,7 +4,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const BlueBtn = styled.button`
+const BlueBtn = window.styled.button`
 height: 3.5rem;
     background: #0058a3;
     color: #fff;

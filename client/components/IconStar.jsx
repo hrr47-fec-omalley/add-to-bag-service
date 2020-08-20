@@ -3,12 +3,12 @@ import styled from "styled-components";
 
 const S = {};
 
-S.span = styled.span`
+S.span = window.styled.span`
   width: 0.9rem;
   height: 0.8rem;
 `;
 
-S.svg = styled.svg`
+S.svg = window.styled.svg`
   /* display: inline-block;
   vertical-align: middle; */
 `;

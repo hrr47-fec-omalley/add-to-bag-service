@@ -5,7 +5,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const DescRow = styled.div`
+const DescRow = window.styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

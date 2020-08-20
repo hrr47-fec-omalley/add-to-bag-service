@@ -7,7 +7,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Column, Row } from 'simple-flexbox';
 
-const Wrapper = styled.div`
+const Wrapper = window.styled.div`
 border: solid 1px transparent;
 border-radius:4px;
 height: 100px;
@@ -15,27 +15,7 @@ width: 100px;
 padding: 15px;
 `;
 
-const firstImage = styled.img`
-flex-flow: column wrap;
-font-size: .875rem;
-font-weight: 700;
-width: 70px;
-height: 40px;
-float: right;
-padding: 3px;
-margin-top: 40px;
-position:relative;
-flex-wrap: wrap;
-:hover {
-  outline: 2px solid black;
-}
-:active {
-  outline: 2px solid black;
-}
-object-fit: cover;
-;`;
-
-const Thumb = styled.img`
+const Thumb = window.styled.img`
 flex-flow: column wrap;
 font-size: .875rem;
 font-weight: 700;
