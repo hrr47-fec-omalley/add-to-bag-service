@@ -42,14 +42,13 @@ top:40px;
 right:10px;
 position:${position};
 animation:${ToastAnimation} 1s;
-
 `;
 
 class Toast extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      note: ''
+      note: '',
     };
     console.log('hello1');
   }

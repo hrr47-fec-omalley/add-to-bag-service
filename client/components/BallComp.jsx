@@ -2,13 +2,12 @@
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/jsx-no-comment-textnodes */
 import React from 'react';
-import styled from 'styled-components';
 
-const ButtonsRow = styled.div`
+const ButtonsRow = window.styled.div`
   display: flex;
   justify-content: space-evenly;
 `;
-const Button = styled.div`
+const Button = window.styled.div`
   cursor: pointer;
   :hover {
     background-color: gray;

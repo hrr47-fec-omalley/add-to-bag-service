@@ -4,17 +4,16 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable func-names */
 import React from 'react';
-import styled from 'styled-components';
 import IconStar from './IconStar.jsx';
 
 const S = {};
 
-S.WrapperDiv = styled.div`
+S.WrapperDiv = window.styled.div`
   display: flex;
   align-items: center;
 `;
 
-S.RatingSpan = styled.span`
+S.RatingSpan = window.styled.span`
   font-size: 1.0rem;
   font-weight: 700;
   padding: 1px;
@@ -22,13 +21,13 @@ S.RatingSpan = styled.span`
   font-family: Helvetica, Arial;
 `;
 
-S.BackStarsDiv = styled.div`
+S.BackStarsDiv = window.styled.div`
   display: flex;
   position: relative;
   color: #d3d3d3;
 `;
 
-S.FrontDiv = styled.div`
+S.FrontDiv = window.styled.div`
   display: flex;
   position: absolute;
   top: 0;
