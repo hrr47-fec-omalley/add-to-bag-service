@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import styled, { keyframes } from 'styled-components';
+import React from 'react';
 
-const ToastAnimation = keyframes`
+const ToastAnimation = window.styled.keyframes`
   from {
     top: 40px;
     right: 3px;
@@ -12,7 +11,7 @@ const ToastAnimation = keyframes`
   }
 `;
 
-const position = styled.div`
+const position = window.styled.div`
   top: 40px;
   right: 10px;
   transition: transform .6s ease-in-out;
@@ -20,14 +19,14 @@ const position = styled.div`
 ;`;
 
 
-const ToastContainer = styled.div`
+const ToastContainer = window.styled.div`
   font-size: 12px;
   box-sizing: border-box;
   transition: transform .6s ease-in-out;
 
 ;`;
 
-const ToastNotification = styled.div`
+const ToastNotification = window.styled.div`
   color: white;
   background: black;
   font-size: 17px;
@@ -37,7 +36,7 @@ const ToastNotification = styled.div`
 
 `;
 
-const Ddiv = styled.div`
+const Ddiv = window.styled.div`
 position:absolute;
 top:40px;
 right:10px;
