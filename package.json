@@ -63,7 +63,7 @@
     "react-hover-grid": "^1.0.9",
     "react-toast-notifications": "^2.4.0",
     "request": "^2.88.2",
-    "simple-flexbox": "^2.3.2",
+    "simple-flexbox": "^2.3.3",
     "styled-components": "^5.1.1",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
